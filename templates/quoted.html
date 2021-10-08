@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Quoted
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Symbol</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for each in results %}
+    <tr>
+        <th scope="row">{{ loop.index }}</th>
+        <td>{{ each['symbol']|upper }}</td>
+        <td>{{ each['name'] }}</td>
+        <td>{{ each['price']|usd }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
